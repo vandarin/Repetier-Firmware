@@ -77,7 +77,7 @@
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
 #define EXT0_Z_OFFSET 0
-#define EXT0_STEPS_PER_MM 95
+#define EXT0_STEPS_PER_MM 86
 #define EXT0_TEMPSENSOR_TYPE 1
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 #define EXT0_HEATER_PIN HEATER_0_PIN
@@ -91,9 +91,9 @@
 #define EXT0_MAX_ACCELERATION 5000
 #define EXT0_HEAT_MANAGER 3
 #define EXT0_WATCHPERIOD 1
-#define EXT0_PID_INTEGRAL_DRIVE_MAX 230
+#define EXT0_PID_INTEGRAL_DRIVE_MAX 245
 #define EXT0_PID_INTEGRAL_DRIVE_MIN 40
-#define EXT0_PID_PGAIN_OR_DEAD_TIME 7
+#define EXT0_PID_PGAIN_OR_DEAD_TIME 10
 #define EXT0_PID_I 2
 #define EXT0_PID_D 40
 #define EXT0_PID_MAX 255
@@ -106,7 +106,7 @@
 #define EXT0_DESELECT_COMMANDS ""
 #define EXT0_EXTRUDER_COOLER_PIN ORIG_FAN_PIN
 #define EXT0_EXTRUDER_COOLER_SPEED 255
-#define EXT0_DECOUPLE_TEST_PERIOD 12000
+#define EXT0_DECOUPLE_TEST_PERIOD 30000
 #define EXT0_JAM_PIN -1
 #define EXT0_JAM_PULLUP 0
 
@@ -152,9 +152,9 @@
 
 #define HAVE_HEATED_BED 1
 #define HEATED_BED_MAX_TEMP 120
-#define SKIP_M190_IF_WITHIN 6
+#define SKIP_M190_IF_WITHIN 10
 #define HEATED_BED_SENSOR_TYPE 1
-#define HEATED_BED_SENSOR_PIN 2
+#define HEATED_BED_SENSOR_PIN TEMP_1_PIN
 #define HEATED_BED_HEATER_PIN HEATER_1_PIN
 #define HEATED_BED_SET_INTERVAL 5000
 #define HEATED_BED_HEAT_MANAGER 0
@@ -255,7 +255,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 3
 #define ENDSTOP_X_BACK_ON_HOME 1
 #define ENDSTOP_Y_BACK_ON_HOME 1
-#define ENDSTOP_Z_BACK_ON_HOME 0
+#define ENDSTOP_Z_BACK_ON_HOME 1
 #define ALWAYS_CHECK_ENDSTOPS 1
 
 // ################# XYZ movements ###################
@@ -263,8 +263,8 @@ It also can add a delay to wait for spindle to run on full speed.
 #define X_ENABLE_ON 0
 #define Y_ENABLE_ON 0
 #define Z_ENABLE_ON 0
-#define DISABLE_X 0
-#define DISABLE_Y 0
+#define DISABLE_X 1
+#define DISABLE_Y 1
 #define DISABLE_Z 0
 #define DISABLE_E 1
 #define PREVENT_Z_DISABLE_ON_STEPPER_TIMEOUT
@@ -274,9 +274,9 @@ It also can add a delay to wait for spindle to run on full speed.
 #define X_HOME_DIR 1
 #define Y_HOME_DIR 1
 #define Z_HOME_DIR 1
-#define X_MAX_LENGTH 300
+#define X_MAX_LENGTH 275
 #define Y_MAX_LENGTH 190
-#define Z_MAX_LENGTH 175
+#define Z_MAX_LENGTH 195
 #define X_MIN_POS -16
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
@@ -328,12 +328,12 @@ It also can add a delay to wait for spindle to run on full speed.
 #define STEP_DOUBLER_FREQUENCY 12000
 #define ALLOW_QUADSTEPPING 0
 #define DOUBLE_STEP_DELAY 0 // time in microseconds
-#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_X 3000
-#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Y 2000
-#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Z 1000
-#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_X 3500
-#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Y 2500
-#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Z 1500
+#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_X 2000
+#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Y 1000
+#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Z 500
+#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_X 2500
+#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Y 1500
+#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Z 500
 #define INTERPOLATE_ACCELERATION_WITH_Z 1
 #define ACCELERATION_FACTOR_TOP 50
 #define MAX_JERK 20
@@ -411,18 +411,18 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define Z_PROBE_WAIT_BEFORE_TEST 0
 #define Z_PROBE_SPEED 5
 #define Z_PROBE_XY_SPEED 80
-#define Z_PROBE_SWITCHING_DISTANCE 5
+#define Z_PROBE_SWITCHING_DISTANCE 3
 #define Z_PROBE_REPETITIONS 1
-#define Z_PROBE_HEIGHT 15.5
+#define Z_PROBE_HEIGHT 15.1
 #define Z_PROBE_START_SCRIPT "M340 P0 S1650"
 #define Z_PROBE_FINISHED_SCRIPT "M340 P0 S500 \nG4 S5 \nM340 P0 S0"
 #define FEATURE_AUTOLEVEL 1
 #define Z_PROBE_X1 20
 #define Z_PROBE_Y1 20
-#define Z_PROBE_X2 160
+#define Z_PROBE_X2 260
 #define Z_PROBE_Y2 20
-#define Z_PROBE_X3 100
-#define Z_PROBE_Y3 160
+#define Z_PROBE_X3 160
+#define Z_PROBE_Y3 180
 #define BENDING_CORRECTION_A 0
 #define BENDING_CORRECTION_B 0
 #define BENDING_CORRECTION_C 0
@@ -524,18 +524,18 @@ Values must be in range 1..255
             "id": 0,
             "heatManager": 3,
             "pidDriveMin": 40,
-            "pidDriveMax": 230,
+            "pidDriveMax": 245,
             "pidMax": 255,
             "sensorType": 1,
             "sensorPin": "TEMP_0_PIN",
             "heaterPin": "HEATER_0_PIN",
             "maxFeedrate": 50,
             "startFeedrate": 20,
-            "invert": "0",
+            "invert": "1",
             "invertEnable": "0",
             "acceleration": 5000,
             "watchPeriod": 1,
-            "pidP": 7,
+            "pidP": 10,
             "pidI": 2,
             "pidD": 40,
             "advanceK": 0,
@@ -543,7 +543,7 @@ Values must be in range 1..255
             "waitRetractTemp": 150,
             "waitRetractUnits": 0,
             "waitRetract": 0,
-            "stepsPerMM": 95,
+            "stepsPerMM": 86,
             "coolerPin": "ORIG_FAN_PIN",
             "coolerSpeed": 255,
             "selectCommands": "",
@@ -561,7 +561,7 @@ Values must be in range 1..255
                 "enable": "ORIG_E0_ENABLE_PIN"
             },
             "advanceBacklashSteps": 0,
-            "decoupleTestPeriod": 12,
+            "decoupleTestPeriod": 30,
             "jamPin": -1,
             "jamPullup": "0"
         }
@@ -615,12 +615,12 @@ Values must be in range 1..255
     "xMinPos": -16,
     "yMinPos": 0,
     "zMinPos": 0,
-    "xLength": 264,
+    "xLength": 275,
     "yLength": 190,
-    "zLength": 175,
+    "zLength": 195,
     "alwaysCheckEndstops": "1",
-    "disableX": "0",
-    "disableY": "0",
+    "disableX": "1",
+    "disableY": "1",
     "disableZ": "0",
     "disableE": "1",
     "xHomeDir": "1",
@@ -628,7 +628,7 @@ Values must be in range 1..255
     "zHomeDir": "1",
     "xEndstopBack": 1,
     "yEndstopBack": 1,
-    "zEndstopBack": 0,
+    "zEndstopBack": 1,
     "deltaSegmentsPerSecondPrint": 180,
     "deltaSegmentsPerSecondTravel": 70,
     "deltaDiagonalRod": 445,
@@ -746,7 +746,7 @@ Values must be in range 1..255
     "bedDecoupleTestPeriod": 300,
     "caseLightPin": -1,
     "caseLightDefaultOn": "1",
-    "bedSkipIfWithin": 6,
+    "bedSkipIfWithin": 10,
     "gen1T0": 25,
     "gen1R0": 100000,
     "gen1Beta": 4036,
@@ -810,17 +810,17 @@ Values must be in range 1..255
     "zProbeWaitBeforeTest": "0",
     "zProbeSpeed": 5,
     "zProbeXYSpeed": 80,
-    "zProbeHeight": 15.5,
+    "zProbeHeight": 15.1,
     "zProbeStartScript": "M340 P0 S1650",
     "zProbeFinishedScript": "M340 P0 S500 \\nG4 S5 \\nM340 P0 S0",
     "featureAutolevel": "1",
     "zProbeX1": 20,
     "zProbeY1": 20,
-    "zProbeX2": 160,
+    "zProbeX2": 260,
     "zProbeY2": 20,
-    "zProbeX3": 100,
-    "zProbeY3": 160,
-    "zProbeSwitchingDistance": 5,
+    "zProbeX3": 160,
+    "zProbeY3": 180,
+    "zProbeSwitchingDistance": 3,
     "zProbeRepetitions": 1,
     "sdSupport": "0",
     "sdCardDetectPin": -1,
