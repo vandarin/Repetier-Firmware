@@ -42,7 +42,7 @@
 
 // ################## EDIT THESE SETTINGS MANUALLY ################
 //  Microstepping mod eof your RAMO board
-#define MICROSTEP_MODES { 8,8,8,8,8 } // [1,2,4,8,16]
+#define MICROSTEP_MODES { 16,16,16,16,16 } // [1,2,4,8,16]
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
 #define MOTOR_CURRENT_PERCENT { 55,55,55,55,55 }
 
@@ -274,7 +274,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define X_HOME_DIR 1
 #define Y_HOME_DIR 1
 #define Z_HOME_DIR 1
-#define X_MAX_LENGTH 264
+#define X_MAX_LENGTH 300
 #define Y_MAX_LENGTH 190
 #define Z_MAX_LENGTH 175
 #define X_MIN_POS -16
@@ -328,12 +328,12 @@ It also can add a delay to wait for spindle to run on full speed.
 #define STEP_DOUBLER_FREQUENCY 12000
 #define ALLOW_QUADSTEPPING 0
 #define DOUBLE_STEP_DELAY 0 // time in microseconds
-#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_X 2000
-#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Y 1000
-#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Z 500
-#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_X 2500
-#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Y 1500
-#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Z 500
+#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_X 3000
+#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Y 2000
+#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Z 1000
+#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_X 3500
+#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Y 2500
+#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Z 1500
 #define INTERPOLATE_ACCELERATION_WITH_Z 1
 #define ACCELERATION_FACTOR_TOP 50
 #define MAX_JERK 20
@@ -374,7 +374,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define EEPROM_MODE 2
 #undef PS_ON_PIN
 #define PS_ON_PIN -1
-#define JSON_OUTPUT 
+#define JSON_OUTPUT 0
 
 /* ======== Servos =======
 Control the servos with
