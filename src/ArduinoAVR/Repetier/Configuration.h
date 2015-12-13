@@ -70,7 +70,7 @@
 #define PDM_FOR_COOLER 0
 #define DECOUPLING_TEST_MAX_HOLD_VARIANCE 20
 #define DECOUPLING_TEST_MIN_TEMP_RISE 1
-#define KILL_IF_SENSOR_DEFECT 0
+#define KILL_IF_SENSOR_DEFECT 1
 #define RETRACT_ON_PAUSE 2
 #define PAUSE_START_COMMANDS ""
 #define PAUSE_END_COMMANDS ""
@@ -144,6 +144,14 @@
 #define USER_THERMISTORTABLE1 {}
 #define NUM_TEMPS_USERTHERMISTOR2 0
 #define USER_THERMISTORTABLE2 {}
+#define USE_GENERIC_THERMISTORTABLE_1
+#define GENERIC_THERM1_T0 25
+#define GENERIC_THERM1_R0 100000
+#define GENERIC_THERM1_BETA 3950
+#define GENERIC_THERM1_MIN_TEMP -20
+#define GENERIC_THERM1_MAX_TEMP 180
+#define GENERIC_THERM1_R1 0
+#define GENERIC_THERM1_R2 4700
 #define GENERIC_THERM_VREF 5
 #define GENERIC_THERM_NUM_ENTRIES 33
 #define HEATER_PWM_SPEED 0
@@ -153,7 +161,7 @@
 #define HAVE_HEATED_BED 1
 #define HEATED_BED_MAX_TEMP 120
 #define SKIP_M190_IF_WITHIN 10
-#define HEATED_BED_SENSOR_TYPE 1
+#define HEATED_BED_SENSOR_TYPE 97
 #define HEATED_BED_SENSOR_PIN TEMP_1_PIN
 #define HEATED_BED_HEATER_PIN HEATER_1_PIN
 #define HEATED_BED_SET_INTERVAL 5000
@@ -732,7 +740,7 @@ Values must be in range 1..255
     "uiExtruderRetractDistance": 3,
     "uiSpeeddependentPositioning": "0",
     "maxBedTemperature": 120,
-    "bedSensorType": 1,
+    "bedSensorType": 97,
     "bedSensorPin": "TEMP_1_PIN",
     "bedHeaterPin": "HEATER_1_PIN",
     "bedHeatManager": 0,
@@ -749,9 +757,9 @@ Values must be in range 1..255
     "bedSkipIfWithin": 10,
     "gen1T0": 25,
     "gen1R0": 100000,
-    "gen1Beta": 4036,
+    "gen1Beta": 3950,
     "gen1MinTemp": -20,
-    "gen1MaxTemp": 300,
+    "gen1MaxTemp": 180,
     "gen1R1": 0,
     "gen1R2": 4700,
     "gen2T0": 25,
@@ -887,8 +895,8 @@ Values must be in range 1..255
     "servo2StartPos": -1,
     "servo3StartPos": -1,
     "uiDynamicEncoderSpeed": "1",
-    "killIfSensorDefect": "1",
     "uiServoControl": 0,
+    "killIfSensorDefect": "1",
     "jamSteps": 220,
     "jamSlowdownSteps": 320,
     "jamSlowdownTo": 70,
@@ -1005,7 +1013,7 @@ Values must be in range 1..255
     "jsonOutput": "0",
     "hasMAX6675": false,
     "hasMAX31855": false,
-    "hasGeneric1": false,
+    "hasGeneric1": true,
     "hasGeneric2": false,
     "hasGeneric3": false,
     "hasUser0": false,
